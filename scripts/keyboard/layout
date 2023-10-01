@@ -1,0 +1,16 @@
+#!/bin/bash
+
+output=$(setxkbmap -query)
+
+# extraer solo la distribución
+layout=$(echo "$output" | awk -F': +' '/layout/ {print $2}')
+new_layout=""
+if [[ "$layout" == "latam" ]]; then
+	new_layout="us"
+else
+	new_layout="latam"
+fi
+
+setxkbmap $new_layout
+
+# dunstify -h string:x-dunst-stack-tag:layout "Keyboard Layout:" "$new_layout"
