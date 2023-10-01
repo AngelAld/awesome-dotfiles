@@ -1,0 +1,7 @@
+picom -b &
+xinput set-prop 'ELAN0001:00 04F3:3140 Touchpad' 'libinput Tapping Enabled' 1 &
+flashfocus &
+wal -R &
+nm-applet &
+udiskie --appindicator &
+xfce4-power-manager &
